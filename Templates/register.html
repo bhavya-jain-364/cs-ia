@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<title>Register</title>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for msg in messages %}
+            <p>{{msg}}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<form method="POST" action="#">
+    <div class="form-row align-items-center">
+        {{ form.csrf_token }}
+        {{ form.name.label(class='form-label')}} {{ form.name(class='form-control') }}
+        {{ form.pwd.label(class='form-label')}} {{ form.pwd(class='form-control') }}
+        {{ form.confirmpwd.label(class='form-label')}} {{ form.confirmpwd(class='form-control') }}
+        {{ form.mobile.label(class='form-label')}} {{ form.mobile(class='form-control') }}
+        {{ form.address.label(class='form-label')}} {{ form.address(class='form-control') }}
+        {{form.submit(class="btn btn-primary mb-2")}}
+    </div>
+</form>
+
+
+{% endblock %}

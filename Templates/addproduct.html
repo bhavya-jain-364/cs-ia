@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <title>Add Product</title>
+    {% if error %}
+    <h1>ERROR OCCURED</h1>
+    {% endif %}
+    <form method="POST" action="#">
+    <div class="form-row align-items-center">
+        {{ form.csrf_token }}
+        {{ form.id.label(class='form-label')}} {{ form.id(class='form-control') }}
+        {{ form.name.label(class='form-label')}} {{ form.name(class='form-control') }}
+        {{ form.qty.label(class='form-label')}} {{ form.qty(class='form-control') }}
+        {{ form.price.label(class='form-label')}} {{ form.price(class='form-control') }}
+        {{form.submit(class="btn btn-primary mb-2")}}
+    </div>
+</form>
+{% for product in products %}
+    {{product.id}}
+    <br>
+{% endfor %}
+
+
+{% endblock %}
